@@ -1,17 +1,20 @@
-[project]
+﻿[project]
 name = "epita-group2"
 version = "0.1.0"
-description = "Add your description here"
+description = "EPITA TP2 live IPInfo CLI"
 readme = "README.md"
 authors = [
     { name = "tole-corne", email = "hamadourachid89@gmail.com" }
 ]
-requires-python = ">=3.15"
+requires-python = ">=3.10"
 dependencies = [
     "python-dotenv>=1.2.4",
     "requests>=2.34.2",
     "rich>=15.0.0",
 ]
+
+[project.scripts]
+epita-epita-group2-cli = "epita_group2.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.13.6,<0.14.0"]
@@ -21,3 +24,4 @@ build-backend = "uv_build"
 dev = [
     "pytest>=9.2.0",
 ]
+
