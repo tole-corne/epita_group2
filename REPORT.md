@@ -1,8 +1,8 @@
 ﻿# TP 2 — Student Report: Modern Python Tooling & Live API Systems
 
-**Student Name / Team:** Group 2  
-**EPITA Login:** `epita.group2`  
-**Assigned API Group:** Group 6 — Geolocation & IP Ops (IPInfo.io), used following the instructor's direct instruction  
+**Student Name / Team:** Rachid Abou Djamal Hamadou (Group 2: Aaryan Anand Dhorey, Lilia Jazmin Santiago Del Angel, Mohamed Abdellahi Nomane, Rachid Abou Djamal Hamadou)  
+**EPITA Login:** `rachid.abou-djamal-hamadou`  
+**Assigned API Group:** Group 2, Crypto Assets (CryptoCompare) per the roster; implemented with IPInfo.io following the instructor's direct instruction  
 **Date:** 31/10/2026  
 **TestPyPI Live Package URL:** https://test.pypi.org/project/epita-group2/
 
@@ -10,11 +10,13 @@
 
 ## Step 0: Assigned Group Verification
 
-- **Assigned domain:** Group 6 — Geolocation & IP Ops (IPInfo.io), as listed in the Step 0 table of the lab.
+- **Assigned domain (roster):** Group 2, Crypto Assets (CryptoCompare), `GET https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH&tsyms=USD,EUR`, header `Apikey <key>`.
+- **Implemented domain:** IPInfo.io (see endpoint below), following the instructor's direct instruction.
 - **Endpoint:** `GET https://ipinfo.io/json` with an `Authorization: Bearer <token>` header.
 - **Environment variable:** `IPINFO_TOKEN`.
 - **Project directory:** `epita_group2` (`C:\Users\hamad\Documents\epita\epita_group2`).
 - **Package name:** `epita-group2`.
+- **Naming:** the project and CLI use the team name (`epita_group2`, `epita-epita-group2-cli`) rather than `epita_<login>_<domain>`; they were already published on TestPyPI under these names.
 - **Note:** the lab document does not define a group-verification command, so no command output is included. The group was applied following the instructor's direct instruction.
 
 ## Part 1: Environment Isolation with `uv`
@@ -170,10 +172,10 @@ Successfully built dist\epita_group2-0.1.0-py3-none-any.whl
 **Publish command:**
 
 ```powershell
-uv publish --publish-url https://test.pypi.org/legacy/ --token "<TESTPYPI_TOKEN>"
+uv publish --publish-url https://test.pypi.org/legacy/
 ```
 
-Both the wheel and the source distribution were uploaded. The token is intentionally omitted.
+Both the wheel and the source distribution were uploaded. The token was supplied through the UV_PUBLISH_TOKEN environment variable and is intentionally omitted.
 
 **Live verification: installation from TestPyPI in a clean temporary directory.** The command was run from `%TEMP%`, outside the project, with `IPINFO_TOKEN` set in the shell:
 
@@ -199,7 +201,7 @@ uv run --with epita-group2 --index-url https://test.pypi.org/simple/ --extra-ind
 ╰───────────────────────────────────────────────────╯
 ```
 
-The package installed from TestPyPI (with dependencies resolved from PyPI) and the CLI returned live data, which confirms that the published package works outside the development environment.
+The table above is a simplified rendering of the terminal output. The table above is a simplified rendering of the terminal output. The package installed from TestPyPI (with dependencies resolved from PyPI) and the CLI returned live data, which confirms that the published package works outside the development environment.
 
 ### 2. Packaging theory
 
@@ -295,4 +297,6 @@ Aggregate Result: {'successful_entries': 3, 'total_volume': 650.0, 'avg_volume':
 ```
 
 This matches the expected values for the three `SUCCESS` records: volumes `120 + 450 + 80 = 650`, average volume `650 / 3 ≈ 216.67`, and one high-impact record (`450 × 3 = 1350`, greater than 500).
+
+
 
