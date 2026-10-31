@@ -11,7 +11,7 @@ def parse_api_record(raw_entry: str) -> dict:
     return {
         "id": parts[0],
         "entity": parts[1],
-        "volume": int(parts[2]),       # <-- Hint: What runtime type is this?
+        "volume": float(parts[2]),       # <-- Hint: What runtime type is this?
         "status": parts[3],
         "weight": int(parts[4])         # <-- Hint: What runtime type is this?
     }
