@@ -201,7 +201,7 @@ uv run --with epita-group2 --index-url https://test.pypi.org/simple/ --extra-ind
 ╰───────────────────────────────────────────────────╯
 ```
 
-The table above is a simplified rendering of the terminal output. The table above is a simplified rendering of the terminal output. The package installed from TestPyPI (with dependencies resolved from PyPI) and the CLI returned live data, which confirms that the published package works outside the development environment.
+The table above is a simplified rendering of the terminal output. The package installed from TestPyPI (with dependencies resolved from PyPI) and the CLI returned live data, which confirms that the published package works outside the development environment.
 
 ### 2. Packaging theory
 
@@ -297,6 +297,7 @@ Aggregate Result: {'successful_entries': 3, 'total_volume': 650.0, 'avg_volume':
 ```
 
 This matches the expected values for the three `SUCCESS` records: volumes `120 + 450 + 80 = 650`, average volume `650 / 3 ≈ 216.67`, and one high-impact record (`450 × 3 = 1350`, greater than 500).
+
 
 
 
